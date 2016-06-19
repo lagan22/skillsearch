@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_43438_skill_sear.buildContextList</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>buildContextList</name>
+        <script><![CDATA[var buildContextList = Class.create();
+buildContextList.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	
+	buildContextList : function(){
+		
+		var selSysIds = this.getParameter('sysparm_ids');		
+		
+		var q = '';
+		var l = '';
+		var user = '';
+		var list = selSysIds.split(',');
+		
+		for(i=0;i<list.length;i++){
+			var a = new GlideRecord('x_43438_skill_sear_results');
+			a.get(list[i]);
+			user = a.user;
+			if(i==0){
+				l = "user="+user;
+			}
+			if(i>0){
+				q += '^ORuser='+user;
+			}
+			
+		}
+		
+		var query = l+q;
+		return query;
+	},
+	
+	type: 'buildContextList'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-06-17 03:24:37</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>d3e0adf54f04ee00337ab5e18110c797</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>buildContextList</sys_name>
+        <sys_package display_value="Skill Search" source="x_43438_skill_sear">90f7c8a54f4cae00337ab5e18110c75e</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Skill Search">90f7c8a54f4cae00337ab5e18110c75e</sys_scope>
+        <sys_update_name>sys_script_include_d3e0adf54f04ee00337ab5e18110c797</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-06-17 03:51:18</sys_updated_on>
+    </sys_script_include>
+</record_update>

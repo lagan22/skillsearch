@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Job Weighting" max_length="40" name="x_43438_skill_sear_job_weighting" type="collection">
+        <element label="Job Role" max_length="32" name="job_role" reference="x_43438_skill_sear_job_role" type="reference"/>
+        <element label="Skill" max_length="32" name="skill" reference="cmn_skill" reference_qual="u_subcategory!=^EQ" reference_qual_condition="u_subcategory!=^EQ" type="reference"/>
+        <element label="Weighting" max_length="40" name="weighting" type="integer"/>
+        <index name="index">
+            <element name="job_role"/>
+        </index>
+        <index name="index2">
+            <element name="skill"/>
+        </index>
+    </element>
+</database>

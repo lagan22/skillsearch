@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="ae2a88e14f4cae00337ab5e18110c76a" sys_domain="global" table="x_43438_skill_sear_skill" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-17 04:34:52</sys_created_on>
+            <sys_id>bf0179b94f04ee00337ab5e18110c766</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_43438_skill_sear_skill" sys_domain="global" view="Default view">ae2a88e14f4cae00337ab5e18110c76a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-17 04:34:52</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sys_class_name</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-17 04:34:52</sys_created_on>
+            <sys_id>330179b94f04ee00337ab5e18110c767</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_43438_skill_sear_skill" sys_domain="global" view="Default view">ae2a88e14f4cae00337ab5e18110c76a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-17 04:34:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>parent</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-17 04:34:52</sys_created_on>
+            <sys_id>b30179b94f04ee00337ab5e18110c767</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_43438_skill_sear_skill" sys_domain="global" view="Default view">ae2a88e14f4cae00337ab5e18110c76a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-17 04:34:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-17 04:34:52</sys_created_on>
+            <sys_id>370179b94f04ee00337ab5e18110c767</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_43438_skill_sear_skill" sys_domain="global" view="Default view">ae2a88e14f4cae00337ab5e18110c76a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-17 04:34:52</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-17 04:34:52</sys_created_on>
+            <sys_id>ff01f97d4f04ee00337ab5e18110c71a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_43438_skill_sear_skill" sys_domain="global" view="Default view">ae2a88e14f4cae00337ab5e18110c76a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-17 04:34:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>task</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-17 04:34:52</sys_created_on>
+            <sys_id>7301f97d4f04ee00337ab5e18110c71b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_43438_skill_sear_skill" sys_domain="global" view="Default view">ae2a88e14f4cae00337ab5e18110c76a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-17 04:34:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>template</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-17 04:34:52</sys_created_on>
+            <sys_id>f301f97d4f04ee00337ab5e18110c71b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_43438_skill_sear_skill" sys_domain="global" view="Default view">ae2a88e14f4cae00337ab5e18110c76a</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-17 04:34:52</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_43438_skill_sear_skill</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2016-06-16 02:26:50</sys_created_on>
+            <sys_customer_update>true</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ae2a88e14f4cae00337ab5e18110c76a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_43438_skill_sear_skill</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Skill Search" source="x_43438_skill_sear">90f7c8a54f4cae00337ab5e18110c75e</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Skill Search">90f7c8a54f4cae00337ab5e18110c75e</sys_scope>
+            <sys_update_name>sys_ui_section_ae2a88e14f4cae00337ab5e18110c76a</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2016-06-16 02:26:50</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

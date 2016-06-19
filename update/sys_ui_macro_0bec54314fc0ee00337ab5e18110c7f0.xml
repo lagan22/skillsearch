@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_macro">
+    <sys_ui_macro action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>general</category>
+        <description/>
+        <media_type/>
+        <name>skill_summary_multi</name>
+        <scoped_name>x_43438_skill_sear_skill_summary_multi</scoped_name>
+        <sys_class_name>sys_ui_macro</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-06-16 22:27:29</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>0bec54314fc0ee00337ab5e18110c7f0</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>skill_summary_multi</sys_name>
+        <sys_package display_value="Skill Search" source="x_43438_skill_sear">90f7c8a54f4cae00337ab5e18110c75e</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Skill Search">90f7c8a54f4cae00337ab5e18110c75e</sys_scope>
+        <sys_update_name>sys_ui_macro_0bec54314fc0ee00337ab5e18110c7f0</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-06-16 22:27:41</sys_updated_on>
+        <xml><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+	<style>
+	
+	.a{
+		width: 500px;
+		
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<g:requires name="scripts/GlideV2ChartingIncludes.js" includes="true"/>
+	
+	
+	
+	<div class="container">
+  <h2>Skills Overview</h2>
+  <div class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" href="#collapse1">Click to view Skills Breakdown</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse">
+        <div id ="report_body" class="panel-body">Skill Summary</div>
+        <div class="panel-footer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	<g:evaluate>
+		var id = RP.getParameterValue('sys_id_multi')
+		id;
+	</g:evaluate>
+	
+	<script>embedReportByParams($j('#report_body'),
+		{
+    'sysparm_title' : 'User Summary',
+    'sysparm_table': 'sys_user_has_skill',
+    'sysparm_type' :  'horizontal_bar',
+	'sysparm_field' : 'skill.u_classification',
+	'sysparm_stack_field' : 'skill',
+	'sysparm_query' : 'skill.u_classification!=""^user=${id}^u_raw_score!=0',
+	'sysparm_show_other' : 'true',
+	'sysparm_display_grid' : 'true',
+		'sysparm_aggregate' : 'SUM',
+		'sysparm_sumfield' : 'u_raw_score'
+		
+		})</script>
+</j:jelly>]]></xml>
+    </sys_ui_macro>
+</record_update>

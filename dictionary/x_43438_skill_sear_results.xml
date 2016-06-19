@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element attributes="hasLabels=true" label="Results" max_length="40" name="x_43438_skill_sear_results" type="collection">
+        <element label="Raw Score Total" max_length="40" name="raw_score_total" type="integer"/>
+        <element label="Skill Search" max_length="32" name="skill_search" reference="x_43438_skill_sear_skill" type="reference"/>
+        <element label="User" max_length="32" name="user" reference="sys_user" type="reference"/>
+        <element label="Weighted Score" max_length="40" name="weighted_score" type="integer"/>
+        <index name="index">
+            <element name="skill_search"/>
+        </index>
+        <index name="index2">
+            <element name="user"/>
+        </index>
+    </element>
+</database>

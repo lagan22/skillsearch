@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>calcScore</action_name>
+        <active>true</active>
+        <client>true</client>
+        <comments/>
+        <condition/>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <hint/>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <name>Find Skills</name>
+        <onclick>calcScore()</onclick>
+        <order>100</order>
+        <script><![CDATA[function calcScore(){ // this is function called on the "onClick" field
+// run Server Action
+gsftSubmit(null, g_form.getFormElement(), 'calcScore'); // this refers to the "Action name"
+}
+
+
+//Code that runs without 'onclick'
+if(typeof window == 'undefined'){
+	getScore(); // call Server code
+}
+
+
+function getScore(){
+	var user = [];
+	
+	var count = new GlideAggregate('sys_user_has_skill');
+	count.addQuery('skill.u_subcategory','!=','');
+	count.addAggregate('COUNT', 'user');
+	count.query();
+	while (count.next()) {
+		var category = count.user;
+		var categoryCount = count.getAggregate('COUNT', 'user');
+		user.push(category.toString());
+		// gs.log("The are currently " + categoryCount + " incidents with a category of " + category);
+	}
+	
+	for(i = 0; i< user.length; i++){
+		var score = 0;
+		var weight = 0;
+		
+		var gr = new GlideRecord('sys_user_has_skill');
+		//gs.log(user[i]);
+		gr.addQuery('user',user[i]);
+		gr.query();
+		while(gr.next()){
+			weight = checkWeighted(gr.skill.sys_id, gr.u_raw_score) + weight;
+			score = parseInt(gr.u_raw_score) + score;
+			//	gs.log('SKILL : ' + gr.skill.name + ' RAW SCORE: ' + gr.u_raw_score + ' ' + score + ' Weighted Score ' + weight);
+			
+		}
+		addRec(user[i],score,weight);
+		//gs.log(score + ' : ' + weight);
+	}
+	
+	action.setRedirectURL(current);
+}
+
+
+
+
+function checkWeighted(skill,rScore){
+	var weighting = 0;
+	var g = new GlideRecord('x_43438_skill_sear_job_weighting');
+	g.addQuery('skill',skill);
+	g.addQuery('job_role', current.template);
+	g.query();
+	if(g.next()){
+		//gs.log('skill found in weighting' +' ' + (rScore * g.weighting));
+		weighting = rScore * g.weighting;
+	}
+	return weighting;
+	
+}
+
+
+function addRec(user,score,weight){
+	
+	var t = new GlideRecord('x_43438_skill_sear_results');
+	t.addQuery('user',user);
+	t.addQuery('skill_search', current.sys_id)
+	t.query()
+	if(t.next()){
+		t.raw_score_total = score;
+		t.weighted_score = weight;
+		t.update();
+	}else{
+		t.initialize();
+		t.raw_score_total = score;
+		t.weighted_score = weight;
+		t.user = user;
+		t.skill_search = current.sys_id;
+		t.insert();
+	}
+	
+	
+}
+
+
+]]></script>
+        <show_insert>true</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-06-16 04:55:26</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3e0c60654f8cae00337ab5e18110c7eb</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Find Skills</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Skill Search" source="x_43438_skill_sear">90f7c8a54f4cae00337ab5e18110c75e</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Skill Search">90f7c8a54f4cae00337ab5e18110c75e</sys_scope>
+        <sys_update_name>sys_ui_action_3e0c60654f8cae00337ab5e18110c7eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-06-16 06:34:01</sys_updated_on>
+        <table>x_43438_skill_sear_skill</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>true</ui16_compatible>
+    </sys_ui_action>
+</record_update>

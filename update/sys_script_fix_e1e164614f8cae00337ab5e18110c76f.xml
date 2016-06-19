@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name/>
+        <run_once>true</run_once>
+        <script><![CDATA[// var x = new GlideRecord('sys_user_has_skill');
+// x.addQuery('skill.u_subcategory','!=','');
+// x.query();
+// while(x.next()){	
+// 	gs.log(x.user.name)
+// }
+
+var user = [];
+
+var count = new GlideAggregate('sys_user_has_skill');
+count.addQuery('skill.u_subcategory','!=','');
+count.addAggregate('COUNT', 'user');
+count.query();   
+while (count.next()) {
+   var category = count.user;
+   var categoryCount = count.getAggregate('COUNT', 'user');
+	user.push(category.toString());
+  // gs.log("The are currently " + categoryCount + " incidents with a category of " + category);
+}
+
+for(i = 0; i< user.length; i++){
+	var score = 0;
+	var weight = 0;
+	
+var gr = new GlideRecord('sys_user_has_skill');
+gs.log(user[i]);
+gr.addQuery('user',user[i]);
+	gr.query();
+	while(gr.next()){
+		weight = checkWeighted(gr.skill.sys_id, gr.u_raw_score) + weight;		
+		score = parseInt(gr.u_raw_score) + score;
+		
+		gs.log('SKILL : ' + gr.skill.name + ' RAW SCORE: ' + gr.u_raw_score + ' ' + score + ' Weighted Score ' + weight);
+		
+	}
+	gs.log(score + ' : ' + weight);
+}
+
+
+function checkWeighted(skill,rScore){
+	var weighting = 0;
+	var g = new GlideRecord('x_43438_skill_sear_job_weighting');
+	g.addQuery('skill',skill);
+	g.query();
+	if(g.next()){		
+	gs.log('skill found in weighting' +' ' + (rScore * g.weighting));
+		weighting = rScore * g.weighting;
+	}
+	return weighting;
+	
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2016-06-16 04:11:55</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>e1e164614f8cae00337ab5e18110c76f</sys_id>
+        <sys_mod_count>32</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Skill Search" source="x_43438_skill_sear">90f7c8a54f4cae00337ab5e18110c75e</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Skill Search">90f7c8a54f4cae00337ab5e18110c75e</sys_scope>
+        <sys_update_name>sys_script_fix_e1e164614f8cae00337ab5e18110c76f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2016-06-16 04:48:21</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

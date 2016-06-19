@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element extends="task" label=" Skill Search" max_length="40" name="x_43438_skill_sear_skill" sizeclass="4" type="collection">
+        <element label="Task" max_length="32" name="task" reference="task" type="reference"/>
+        <element label="Template" max_length="32" name="template" reference="x_43438_skill_sear_job_role" type="reference"/>
+    </element>
+</database>

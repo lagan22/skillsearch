@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Job Role" max_length="40" name="x_43438_skill_sear_job_role" type="collection">
+        <element label="Name" max_length="40" name="name" type="string"/>
+    </element>
+</database>
